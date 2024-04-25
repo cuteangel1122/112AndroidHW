@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, NextActivity.class);
                 intent.putExtra("gender", gender);
                 intent.putExtra("ticketCount", ticketCount);
-                intent.putExtra("ticketInfo", ticketType); // 将票种放入 "ticketInfo"
+                intent.putExtra("ticketInfo", ticketType);
                 startActivity(intent);
             }
         });

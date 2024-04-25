@@ -22,13 +22,13 @@ public class NextActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // 獲取從 MainActivity 傳遞過來的數據
+
         Intent intent = getIntent();
         String gender = intent.getStringExtra("gender");
         String ticketCount = intent.getStringExtra("ticketCount");
         String ticketInfo = intent.getStringExtra("ticketInfo");
 
-        // 將數據設置到對應的 TextView 中
+     
         TextView txtGender = findViewById(R.id.txtGender);
         txtGender.setText("性別：" + gender);
 
@@ -38,13 +38,11 @@ public class NextActivity extends AppCompatActivity {
         TextView txtTicketCount = findViewById(R.id.txtTicketCount);
         txtTicketCount.setText("張數：" + ticketCount);
 
-        // 這裡需要計算金額，假設全票 500 元，兒童票 250 元，學生票 400 元
         int amount = calculateAmount(ticketInfo, Integer.parseInt(ticketCount));
         TextView txtAmount = findViewById(R.id.txtAmount);
         txtAmount.setText("金額：" + amount + " 元");
     }
 
-    // 計算金額的方法
     private int calculateAmount(String ticketInfo, int ticketCount) {
         int amount = 0;
         if (ticketInfo.equals("全票")) {
