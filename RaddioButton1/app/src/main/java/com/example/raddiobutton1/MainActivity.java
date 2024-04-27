@@ -10,6 +10,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +21,47 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RadioGroup type = findViewById(R.id.rgType);
+        type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                updatePreview();
+            }
+        });
+        RadioButton boyRadioButton = findViewById(R.id.rdbBoy);
+        boyRadioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updatePreview();
+            }
+        });
+
+        RadioButton girlRadioButton = findViewById(R.id.rdbGirl);
+        girlRadioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updatePreview();
+            }
+        });
+
+        EditText ticketCountEditText = findViewById(R.id.editTextNumber);
+        ticketCountEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // 不需要实现
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updatePreview();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // 不需要实现
+            }
+        });
 
         Button button = (Button) findViewById(R.id.btnOK);
         button.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //TextView output = (TextView) findViewById(R.id.lblOutput);
                 //output.setText(outputStr);
+                updatePreview();
                 sendString();
             }
             public void sendString() {
@@ -89,4 +133,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-}
+private void updatePreview() {
+    RadioButton boy = findViewById(R.id.rdbBoy);
+    RadioButton girl = findViewById(R.id.rdbGirl);
+    String gender = "";
+    if (boy.isChecked()) {
+        gender = "男生";
+    } else if (girl.isChecked()) {
+        gender = "女生";
+    }
+
+    RadioGroup type = findViewById(R.id.rgType);
+    String ticketType = "";
+    if(type.getCheckedRadioButtonId() == R.id.rdbAdult) {
+        ticketType = "全票";
+    } else if(type.getCheckedRadioButtonId() == R.id.rdbChild) {
+        ticketType = "兒童票";
+    } else {
+        ticketType = "學生票";
+    }
+
+    EditText ticketCountEditText = findViewById(R.id.editTextNumber);
+    String ticketCount = ticketCountEditText.getText().toString(); // 获取票数
+    if(ticketCount.isEmpty()) {
+        ticketCount = "0";
+    }
+
+    TextView previewTextView = findViewById(R.id.previewTextView);
+    previewTextView.setText("目前選擇：\n" + "性别：" + gender + "\n票種：" + ticketType + "\n張數：" + ticketCount);
+}}

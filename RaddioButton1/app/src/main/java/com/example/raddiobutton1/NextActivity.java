@@ -28,7 +28,7 @@ public class NextActivity extends AppCompatActivity {
         String ticketCount = intent.getStringExtra("ticketCount");
         String ticketInfo = intent.getStringExtra("ticketInfo");
 
-     
+
         TextView txtGender = findViewById(R.id.txtGender);
         txtGender.setText("性別：" + gender);
 

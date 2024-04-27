@@ -85,10 +85,10 @@
         android:id="@+id/btnOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="88dp"
-        android:text="確認"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="136dp"
         android:onClick="sendString"
+        android:text="確認"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTicketCount" />
 
@@ -102,5 +102,17 @@
         android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/txtTicketCount"
         app:layout_constraintTop_toBottomOf="@+id/rgType" />
+
+    <TextView
+        android:id="@+id/previewTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="20dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/btnOK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTicketCount"
+        app:layout_constraintVertical_bias="0.649" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
