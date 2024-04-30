@@ -49,17 +49,13 @@ public class MainActivity extends AppCompatActivity {
         ticketCountEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // 不需要实现
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updatePreview();
             }
-
             @Override
             public void afterTextChanged(Editable s) {
-                // 不需要实现
             }
         });
 
@@ -114,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
                     gender = "女生";
                 }
 
-                // 获取票种
                 RadioGroup type = findViewById(R.id.rgType);
                 String ticketType = "";
                 if(type.getCheckedRadioButtonId() == R.id.rdbAdult) {
@@ -145,20 +140,25 @@ private void updatePreview() {
 
     RadioGroup type = findViewById(R.id.rgType);
     String ticketType = "";
+    int ticketPrice = 0;
     if(type.getCheckedRadioButtonId() == R.id.rdbAdult) {
         ticketType = "全票";
+        ticketPrice = 500;
     } else if(type.getCheckedRadioButtonId() == R.id.rdbChild) {
         ticketType = "兒童票";
+        ticketPrice = 250;
     } else {
         ticketType = "學生票";
+        ticketPrice = 400;
     }
 
     EditText ticketCountEditText = findViewById(R.id.editTextNumber);
-    String ticketCount = ticketCountEditText.getText().toString(); // 获取票数
-    if(ticketCount.isEmpty()) {
-        ticketCount = "0";
+    String ticketCountStr = ticketCountEditText.getText().toString();
+    int ticketCount = 0;
+    if (!ticketCountStr.isEmpty()) {
+        ticketCount = Integer.parseInt(ticketCountStr);
     }
-
+    int totalAmount = ticketCount * ticketPrice;
     TextView previewTextView = findViewById(R.id.previewTextView);
-    previewTextView.setText("目前選擇：\n" + "性别：" + gender + "\n票種：" + ticketType + "\n張數：" + ticketCount);
+    previewTextView.setText("目前選擇：\n" + "性别：" + gender + "\n票種：" + ticketType + "\n張數：" + ticketCount+ "\n金額：" + totalAmount);
 }}

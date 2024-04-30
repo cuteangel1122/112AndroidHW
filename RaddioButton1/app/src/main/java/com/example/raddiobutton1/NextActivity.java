@@ -38,12 +38,12 @@ public class NextActivity extends AppCompatActivity {
         TextView txtTicketCount = findViewById(R.id.txtTicketCount);
         txtTicketCount.setText("張數：" + ticketCount);
 
-        int amount = calculateAmount(ticketInfo, Integer.parseInt(ticketCount));
+        int amount = getTicketPrice(ticketInfo, Integer.parseInt(ticketCount));
         TextView txtAmount = findViewById(R.id.txtAmount);
         txtAmount.setText("金額：" + amount + " 元");
     }
 
-    private int calculateAmount(String ticketInfo, int ticketCount) {
+    private int getTicketPrice(String ticketInfo, int ticketCount) {
         int amount = 0;
         if (ticketInfo.equals("全票")) {
             amount = 500 * ticketCount;
