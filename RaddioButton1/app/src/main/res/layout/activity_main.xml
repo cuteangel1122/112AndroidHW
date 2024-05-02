@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="性別:"
+        android:text="Gender:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.073"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -32,13 +32,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="男" />
+            android:text="Male" />
 
         <RadioButton
             android:id="@+id/rdbGirl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="女" />
+            android:text="Female" />
     </RadioGroup>
 
     <RadioGroup
@@ -53,21 +53,24 @@
 
         <RadioButton
             android:id="@+id/rdbAdult"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="成人(500)" />
+            android:text="Regular Ticket"
+            android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/rdbChild"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="孩童(250)" />
+            android:text="Children Ticket"
+            android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/rdbStudent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="學生(400)" />
+            android:text="Student Ticket"
+            android:textSize="12sp" />
     </RadioGroup>
 
     <TextView
@@ -76,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginTop="46dp"
-        android:text="張數："
+        android:text="Count："
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rgType" />
@@ -88,7 +91,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="136dp"
         android:onClick="sendString"
-        android:text="確認"
+        android:text="Confirm"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTicketCount" />
 

@@ -68,9 +68,9 @@ public class MainActivity extends AppCompatActivity {
                 RadioButton boy = (RadioButton) findViewById(R.id.rdbBoy);
                 RadioButton girl = (RadioButton) findViewById(R.id.rdbGirl);
                 if (boy.isChecked())
-                    gender += "男生\n";
+                    gender += "Male\n";
                 else if (girl.isChecked())
-                    gender += "女生\n";
+                    gender += "Female\n";
                 outputStr = gender;
                 RadioGroup type = (RadioGroup) findViewById(R.id.rgType);
                 //switch (type.getCheckedRadioButtonId()){
@@ -85,11 +85,11 @@ public class MainActivity extends AppCompatActivity {
                     //    break;
                // }
                 if(type.getCheckedRadioButtonId() == R.id.rdbAdult)
-                    outputStr += "全票\n";
+                    outputStr += "Regular Ticket\n";
                 else if(type.getCheckedRadioButtonId() == R.id.rdbChild)
-                    outputStr += "兒童票\n";
+                    outputStr += "Children Ticket\n";
                 else
-                    outputStr += "學生票\n";
+                    outputStr += "Student Ticket\n";
 
                 //TextView output = (TextView) findViewById(R.id.lblOutput);
                 //output.setText(outputStr);
@@ -105,19 +105,19 @@ public class MainActivity extends AppCompatActivity {
                 RadioButton girl = findViewById(R.id.rdbGirl);
                 String gender = "";
                 if (boy.isChecked()) {
-                    gender = "男生";
+                    gender = "Male";
                 } else if (girl.isChecked()) {
-                    gender = "女生";
+                    gender = "Female";
                 }
 
                 RadioGroup type = findViewById(R.id.rgType);
                 String ticketType = "";
                 if(type.getCheckedRadioButtonId() == R.id.rdbAdult) {
-                    ticketType = "全票";
+                    ticketType = "Regular Ticket";
                 } else if(type.getCheckedRadioButtonId() == R.id.rdbChild) {
-                    ticketType = "兒童票";
+                    ticketType = "Children Ticket";
                 } else {
-                    ticketType = "學生票";
+                    ticketType = "Student Ticket";
                 }
 
                 Intent intent = new Intent(MainActivity.this, NextActivity.class);
@@ -133,22 +133,22 @@ private void updatePreview() {
     RadioButton girl = findViewById(R.id.rdbGirl);
     String gender = "";
     if (boy.isChecked()) {
-        gender = "男生";
+        gender = "Male";
     } else if (girl.isChecked()) {
-        gender = "女生";
+        gender = "Female";
     }
 
     RadioGroup type = findViewById(R.id.rgType);
     String ticketType = "";
     int ticketPrice = 0;
     if(type.getCheckedRadioButtonId() == R.id.rdbAdult) {
-        ticketType = "全票";
+        ticketType = "Regular Ticket";
         ticketPrice = 500;
     } else if(type.getCheckedRadioButtonId() == R.id.rdbChild) {
-        ticketType = "兒童票";
+        ticketType = "Children Ticket";
         ticketPrice = 250;
     } else {
-        ticketType = "學生票";
+        ticketType = "Student Ticket";
         ticketPrice = 400;
     }
 
@@ -160,5 +160,5 @@ private void updatePreview() {
     }
     int totalAmount = ticketCount * ticketPrice;
     TextView previewTextView = findViewById(R.id.previewTextView);
-    previewTextView.setText("目前選擇：\n" + "性别：" + gender + "\n票種：" + ticketType + "\n張數：" + ticketCount+ "\n金額：" + totalAmount);
+    previewTextView.setText("Choose：\n" + "Gender：" + gender + "\nTicket Type：" + ticketType + "\nCount:" + ticketCount+ "\nTotal：" + totalAmount);
 }}

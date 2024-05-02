@@ -30,26 +30,26 @@ public class NextActivity extends AppCompatActivity {
 
 
         TextView txtGender = findViewById(R.id.txtGender);
-        txtGender.setText("性別：" + gender);
+        txtGender.setText("Gender：" + gender);
 
         TextView txtTicketType = findViewById(R.id.txtTicketType);
-        txtTicketType.setText("票種：" + ticketInfo);
+        txtTicketType.setText("Ticket Type：" + ticketInfo);
 
         TextView txtTicketCount = findViewById(R.id.txtTicketCount);
-        txtTicketCount.setText("張數：" + ticketCount);
+        txtTicketCount.setText("Count:" + ticketCount);
 
         int amount = getTicketPrice(ticketInfo, Integer.parseInt(ticketCount));
         TextView txtAmount = findViewById(R.id.txtAmount);
-        txtAmount.setText("金額：" + amount + " 元");
+        txtAmount.setText("Total：" + amount + " dollars");
     }
 
     private int getTicketPrice(String ticketInfo, int ticketCount) {
         int amount = 0;
-        if (ticketInfo.equals("全票")) {
+        if (ticketInfo.equals("Regular Ticket")) {
             amount = 500 * ticketCount;
-        } else if (ticketInfo.equals("兒童票")) {
+        } else if (ticketInfo.equals("Children Ticket")) {
             amount = 250 * ticketCount;
-        } else if (ticketInfo.equals("學生票")) {
+        } else if (ticketInfo.equals("Student Ticket")) {
             amount = 400 * ticketCount;
         }
         return amount;
